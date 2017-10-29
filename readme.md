@@ -12,12 +12,22 @@ This paper mainly studied the use of user behavior data, the algorithm based on 
 Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;ItemCF
 <!-- more -->
 
-目    录
+## Catagory
 
-1 绪 论	1
-1.1 本课题的研究意义及必要性	1
-1.2 相关领域国内外应用的现状及发展趋势	1
-1.3 推荐系统及协同过滤简介	2
+1. [Foreword](#Foreword)
+2. [Array.from()](#Array.from)
+3. [Array.of()](#Array.of)
+4. [数组实例的copyWithin()](#copyWithin)
+5. [数组实例的fill()](#fill)
+6. [数组实例的entries()，keys()，values()](#entries&keys&values)
+7. [数组实例的 includes()](#includes)
+8. [数组的空位](#数组的空位)
+## 目    录
+
+1. [绪 论](#绪 论)
+  1.1 [本课题的研究意义及必要性](#本课题的研究意义及必要性)
+  1.2 [相关领域国内外应用的现状及发展趋势](#相关领域国内外应用的现状及发展趋势)
+  1.3 [推荐系统及协同过滤简介](#推荐系统及协同过滤简介)
 1.3.1 推荐系统	2
 1.3.2协同过滤	4
 2 实验设计和算法测评	5
