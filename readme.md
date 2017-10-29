@@ -6,11 +6,12 @@
 本文主要研究了利用用户行为数据，基于邻域的算法。分别在User-based和Item-based下实验相似度的修正和改进，不同相似度对协同过滤计算方法评测数值的影响。讨论因子Ｋ值（与用户兴趣最相近用户数）对算法的Precision、Recall、Coverage、Popular的影响。UserCF和ItemCF的综合比较。实验结果表明，Ｋ值和算法的各项评测指标也不完全成正相关或负相关，选择合适的Ｋ值获得最高精准度是非常重要的。
 <!-- more -->
 
+<!--
 [关键词] 推荐系统；协同过滤；用户相似度；UserCF；ItemCFAbstract: With the emergence of "big data", people is become in front of the huge data. Information overload problem has become to let people have a headache. Social information than individual or system can accept, processing or the scope of the effective use of and leads to failure.
 Now to solve this problem there are two main ways: one kind is to use search engines, such as Google, baidu, sohu, etc., but this method needs the user's needs clear, users have to very clearly expressed his intention, the quality of its search results to a large extent depends on the user accuracy of requirement description; Another kind is based on the recommendation system, this kind of recommendation systems do not need to users are fully aware of the needs of the clear, it through the history of user behavior data to predict the deduce the user's needs and interests, through the establishment of model and data mining, accurate recommendations for the user. Recommendation system, therefore, more in line with the rhythm of The Times and requirements.
 This paper mainly studied the use of user behavior data, the algorithm based on neighborhood. Respectively under the User - -based and Item - -based experiment similarity correction and improvement, different similarity on collaborative filtering evaluation the effect of numerical calculation method. Discuss the factor K value (close to users in the most number of users) on the Precision of the algorithm, Recall, Coverage, the influence of the Popular. UserCF and ItemCF comprehensive comparison. The experimental results show that the K value and algorithm of each evaluation index is not entirely into positive correlation or negative correlation, select the appropriate K value to obtain the highest accuracy is very important.
 Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;ItemCF
-<!-- more -->
+-->
 
 ## 目 录
 
