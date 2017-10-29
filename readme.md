@@ -10,6 +10,8 @@ Now to solve this problem there are two main ways: one kind is to use search eng
 This paper mainly studied the use of user behavior data, the algorithm based on neighborhood. Respectively under the User - -based and Item - -based experiment similarity correction and improvement, different similarity on collaborative filtering evaluation the effect of numerical calculation method. Discuss the factor K value (close to users in the most number of users) on the Precision of the algorithm, Recall, Coverage, the influence of the Popular. UserCF and ItemCF comprehensive comparison. The experimental results show that the K value and algorithm of each evaluation index is not entirely into positive correlation or negative correlation, select the appropriate K value to obtain the highest accuracy is very important.
 Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;ItemCF
 
+---
+
 ## 目 录
 
 1. [绪 论](##绪论)
@@ -36,6 +38,8 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
   2. [UserCF和ItemCF的综合比较](#UserCF和ItemCF的综合比较)
 
 [参考文献](#参考文献)
+
+----
 
 ## 1 绪 论
 
@@ -79,6 +83,8 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 `协同过滤`一词是九十年代中期提出的，在后来得到了更深入的研究和广泛的应用。协同过滤讲的是：两个用户甲和乙具有相似的历史行为（比如购物，阅读，观影），那么他们在某些项目上具有相似的兴趣。通常，协同过滤技术都会有一个用户历史数据库，需要整合和处理历史数据，然后来预测用户的兴趣，给用户给出合理的推荐。
 基于协同过滤的推荐（Collaborative Filtering recommendation）已经成为一项很受欢迎的技术。早期基于内容过滤是分析物品的内容属性，再进行推荐，但是这样的算法需要全面的了解推荐物品的各项信息，过于繁重和复杂。而协同过滤是分析出用户兴趣，在目标用户的用户群中匹配到相似（兴趣）用户，综合评估相似用户对某一信息的评价，然后预测出目标用户对物品的喜好。
 协同于其他物品或者用户，给用户做出推荐，这正是信息时代的巨大优势，我们利用好用户的数据，就可以得到更准确的预测和推荐。
+
+----
 
 ## 2 实验设计和算法测评
 
@@ -125,6 +131,8 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 - 流行度
 
   推荐物品的流行度测量的是推荐结果的新颖度，要是被推荐出来的物品都是热门的物品，那么就意味着推荐算法的新颖度相对较低，相反，则算法的新颖度比相对较高。但这个评测是比较粗略的，因为具体用户是否知道这个东西是不确定的，需要进一步的对用户做具体调查。
+
+----
 
 ## 3 基于用户的协同过滤算法
 
@@ -195,13 +203,15 @@ UserCF算法有一个重要的参数值K，K为选取的和目标用户兴趣最
 ![UserCF算法和User-IIF算法的对比](./images/result-2.jpg)
 <small class="img-hint">图3.4 UserCF算法和User-IIF算法的对比</small>
 
+----
+
 ## 4 基于物品的协同过滤算法
 
 ### 4.1 引言
 
 基于物品的协同过滤算法是当前应用最为广泛的算法，无论是推荐系统鼻祖的亚马逊，还是国内推荐体验很好的豆瓣，都是基于这种的推荐算法。下面先从基础算法开始介绍，然后分析算法的改进，以及基于数据集测评推荐性能。
 
-###4.2 基础算法
+### 4.2 基础算法
 
 基于用户的协同过滤算法被应用于实践中，但是存在有一些比较突出的缺点。在数据越来越庞大的今天，用户的历史行为数据越来越多，用户兴趣相似度矩阵将变得无比庞大，难以计算，其运算的时间复杂度和空间复杂度骤增。还有就是基于用户的协同过滤算法有一个盲点，它不能够对推荐结果做出解释。在这样的情况下，亚马逊公司首先提出了这个算法——基于物品的协同过滤算法。
 基于物品的协同过滤算法会把用户之前喜欢的相似物品推荐给目标用户，就例如，你购买过《唐诗三百首》它就会把和《唐诗三百首》相似的《宋词一百篇》推荐给你。ItemCF并不是基于计算物品内容属性的相似度，而是计算分析用户行为从而计算出物品的相似度。比如，贝克汉姆和罗纳尔多具有很大的相似度，是因为喜欢贝克汉姆的人大多也喜欢罗纳尔多。在淘宝、京东等页面的底部的“猜你喜欢”就是这样推荐出来的。
@@ -264,6 +274,8 @@ ItemCF算法在计算过程中不会有任何内容属性的比较，但是结�
 
 ![formula-13](./images/formula-13.jpg)
 
+----
+
 ## 5 UserCF和ItemCF的比较
 
 ### 5.1引言
@@ -291,6 +303,8 @@ User-based和Item-based都是协同过滤的经典推荐系统算法，协同过
 - 推荐理由
   UserCF没有明确的和让人信服的推荐解释。
   ItemCF可以提供合理的推荐解释，让用户信服。
+
+----
 
 ## 参考文献
 
