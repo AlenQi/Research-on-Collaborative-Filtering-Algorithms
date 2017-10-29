@@ -4,14 +4,11 @@
 [摘要] 随着“大数据”的出现，人们在庞大的数据面前更是显得束手无策。信息过载的问题成为了让人们头疼的事情。社会信息超过了个人或系统所能接受、处理或有效利用的范围，并导致故障。
 当前要解决这个问题主要有两个途径：一类是使用搜索引擎，比如谷歌、百度、搜狐等，但是这类方法需要用户的需求明确，用户也得十分清楚的表达出自己的意向，其搜索结果的质量很大程度上依赖于用户对需求描述的准确度；另一类就是基于推荐系统，这种推荐系统不需要用户十分明白清楚自己的需求，它通过用户的历史行为数据来预测推断出用户的需求以及兴趣，通过建立模型和数据挖掘，为用户准确推荐。因此，推荐系统更符合当今时代的节奏和需求。
 本文主要研究了利用用户行为数据，基于邻域的算法。分别在User-based和Item-based下实验相似度的修正和改进，不同相似度对协同过滤计算方法评测数值的影响。讨论因子Ｋ值（与用户兴趣最相近用户数）对算法的Precision、Recall、Coverage、Popular的影响。UserCF和ItemCF的综合比较。实验结果表明，Ｋ值和算法的各项评测指标也不完全成正相关或负相关，选择合适的Ｋ值获得最高精准度是非常重要的。
-<!-- more -->
 
-<!--
 [关键词] 推荐系统；协同过滤；用户相似度；UserCF；ItemCFAbstract: With the emergence of "big data", people is become in front of the huge data. Information overload problem has become to let people have a headache. Social information than individual or system can accept, processing or the scope of the effective use of and leads to failure.
 Now to solve this problem there are two main ways: one kind is to use search engines, such as Google, baidu, sohu, etc., but this method needs the user's needs clear, users have to very clearly expressed his intention, the quality of its search results to a large extent depends on the user accuracy of requirement description; Another kind is based on the recommendation system, this kind of recommendation systems do not need to users are fully aware of the needs of the clear, it through the history of user behavior data to predict the deduce the user's needs and interests, through the establishment of model and data mining, accurate recommendations for the user. Recommendation system, therefore, more in line with the rhythm of The Times and requirements.
 This paper mainly studied the use of user behavior data, the algorithm based on neighborhood. Respectively under the User - -based and Item - -based experiment similarity correction and improvement, different similarity on collaborative filtering evaluation the effect of numerical calculation method. Discuss the factor K value (close to users in the most number of users) on the Precision of the algorithm, Recall, Coverage, the influence of the Popular. UserCF and ItemCF comprehensive comparison. The experimental results show that the K value and algorithm of each evaluation index is not entirely into positive correlation or negative correlation, select the appropriate K value to obtain the highest accuracy is very important.
 Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;ItemCF
--->
 
 ## 目 录
 
@@ -37,6 +34,7 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 5. [UserCF和ItemCF的比较](#UserCF和ItemCF的比较)
   1. [引言](#引言)
   2. [UserCF和ItemCF的综合比较](#UserCF和ItemCF的综合比较)
+
 [参考文献](#参考文献)
 
 ## 1 绪 论
@@ -59,8 +57,12 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 
 如果你想买一双足球鞋，你可以走进一家鞋店，看到货架上的所有球鞋，转一圈找到自己喜欢的球鞋，然后买单。你也可以打开淘宝，在搜索框里输入足球鞋三个字，然后你会看到很多足球鞋，找到喜欢的球鞋，然后付款，等待送货上门。这都是用户明确知道自己需求的情况，知道自己要找怎么的足球鞋。
 但是，要是用户没有十分明确的需求时呢？例如图1.1，你想看一本书，但你面对偌大的书架，面对浩瀚的书海，你不知所措。这时候需要一个人或者一个工具来帮助你，给你一些选择方面的建议。但是，不总是刚好有人帮助你做选择，你需要一个了解你的自动化工具帮助你，它知晓你的兴趣，历史行为，帮你从琳琅满目的各类图书中选出符合你兴趣的书来——它就是推荐系统。
+
+<div align=center>
 ![推荐系统](./images/1.jpg)
 <small class="img-hint">图1.1 推荐系统</small>
+</div>
+
 要想明白推荐系统是怎样工作的，我们可以参考在现实生活中我们遇到不知如何选择时是如何求助的。
 我们会向我们的朋友去咨询，我们该如何选择。这种社会化的推荐，我们期望好友会给我们恰当的建议。
 我们会去在搜索引擎上寻找我们喜欢的书籍，或者喜爱的作者，然后看看我们没看过的，感兴趣的。例如，我非常喜欢鲁迅，于是就去谷歌搜索鲁迅的作品，看到自己还没有看过的作品，就会去买一本读读。这种方法是寻找到和自己以前阅读过的书籍相似的书籍。推荐系统可以根据我们的历史数据，推测出我们可能喜爱的书籍。
