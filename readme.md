@@ -14,7 +14,7 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 
 ## 目 录
 
-1. [绪 论](#绪论)
+1. [绪 论](##绪论)
   1. [本课题的研究意义及必要性](##本课题的研究意义及必要性)
   2. [相关领域国内外应用的现状及发展趋势](##相关领域国内外应用的现状及发展趋势)
   3. [推荐系统及协同过滤简介](##推荐系统及协同过滤简介)
