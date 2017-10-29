@@ -72,11 +72,13 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 我们还可能去参考热门书籍的排行榜，看看大家都在读什么书，什么书的评论比较好，然后比较选择出自己感兴趣的书。如果可以找到和自己的历史兴趣相一致的用户，参考他们喜欢的书籍，也许可以得出比热门排行榜更准确的推荐。这种方法就被称为基于协同过滤的推荐。
 
 ![三种推荐方法](./images/2.jpg)
+
 <small class="img-hint">图1.2 三种推荐方法</small>
 
 我们可以看出，推荐算法的最根本的问题在于把物品和用户通过某种计算方法联结在一起，而联结的方法是多种多样的。个性化的推荐系统已经得到了广泛的实战，最著名的例子就是被称为“推荐系统之王”的亚马逊。在国内像淘宝，豆瓣等都有很好的推荐系统。
 
 ![淘宝足球鞋推荐](./images/3.jpg)
+
 <small class="img-hint">图1.3 淘宝足球鞋推荐</small>
 
 ### 1.3.2协同过滤
@@ -157,6 +159,7 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 ![formula-5](./images/formula-5.jpg)
 
 ![用户兴趣表](./images/4.jpg)
+
 <small class="img-hint">图3.1 用户兴趣表</small>
 
 同理，我们可以计算出A和C、D的相似度：
@@ -168,6 +171,7 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 首先，我们得建立物品—用户的倒排表。接下来，建立一个4×4的用户相似度矩阵W，对于物品a，我们把W[A][B]和W[B][A]加1，对于物品b，我们把W[A][C]和W[C][A]加1，按照这样的计算方法。把所有的物品扫描完后，我们就得到了最后的W。这个W是余弦相似度中的分子，将W除以分母我们就可以得到最终的用户兴趣相似度。
 
 ![物品用户倒排表](./images/5.jpg)
+
 <small class="img-hint">图3.2 物品用户倒排表</small>
 
 计算出了用户之间的相似度值后，User-based算法就会推荐出和用户兴趣最相似的K个用户他们所喜欢物品。
@@ -181,6 +185,7 @@ Key words: Recommended System;Collaborative Filtering;User Similarity;UserCF;Ite
 UserCF算法有一个重要的参数值K，K为选取的和目标用户兴趣最相似的用户个数，然后推荐这K个用户感兴趣的物品，在不同的K值下，算法的性能也有很大的区别。我们可以发现，K值的调整对算法的每一项指标都会产生一定的影响。
 
 ![UserCF算法在不同K值参数下的性能](./images/result-1.jpg)
+
 <small class="img-hint">图3.3 UserCF算法在不同K值参数下的性能</small>
 
 - Precision和Recall		
@@ -202,6 +207,7 @@ UserCF算法有一个重要的参数值K，K为选取的和目标用户兴趣最
 在这里将算法改进前后的推荐系统的性能作比较，选取K值为80，我们可以看到，改进后的个性性能的数据都有所提升。
 
 ![UserCF算法和User-IIF算法的对比](./images/result-2.jpg)
+
 <small class="img-hint">图3.4 UserCF算法和User-IIF算法的对比</small>
 
 ----
@@ -218,6 +224,7 @@ UserCF算法有一个重要的参数值K，K为选取的和目标用户兴趣最
 基于物品的协同过滤算法会把用户之前喜欢的相似物品推荐给目标用户，就例如，你购买过《唐诗三百首》它就会把和《唐诗三百首》相似的《宋词一百篇》推荐给你。ItemCF并不是基于计算物品内容属性的相似度，而是计算分析用户行为从而计算出物品的相似度。比如，贝克汉姆和罗纳尔多具有很大的相似度，是因为喜欢贝克汉姆的人大多也喜欢罗纳尔多。在淘宝、京东等页面的底部的“猜你喜欢”就是这样推荐出来的。
 
 ![京东书籍推荐](./images/6.jpg)
+
 <small class="img-hint">图4.1 京东书籍推荐</small>
 
 基于物品的协同过滤算法也可以被分为两步：
@@ -237,6 +244,7 @@ UserCF算法有一个重要的参数值K，K为选取的和目标用户兴趣最
 下图是一个简单计算物品之间相似度的例子。从左到右是模拟实现计算的过程。例如，第一行就表示用户喜欢a,b,d，将物品两两加1，最后将这些矩阵相加得到最终的结果矩阵，一个数组就表示同时喜欢行标物品和列标物品的用户。
 
 ![物品相似度计算的例子](./images/7.jpg)
+
 <small class="img-hint">图4.2 物品相似度计算的例子</small>
 
 ItemCF算法在计算过程中不会有任何内容属性的比较，但是结果可以看出相似的物品在存在有一定内容的相似性。下面的公式可以计算出某一用户对某一物品的兴趣：
@@ -244,6 +252,7 @@ ItemCF算法在计算过程中不会有任何内容属性的比较，但是结�
 此公式表示，在用户历史行为表现出感兴趣的物品与其越相似的物品，被优先推荐。	下面举一个简单的例子，《C++Primer中文版》和《编程之美》是一个用户喜欢的两本书，推荐算法会找出和它们相似的3本书，然后计算出每本书的用户感兴趣的程度。
 
 ![一个简单的基于物品推荐的例子](./images/8.jpg)
+
 <small class="img-hint">图4.3 一个简单的基于物品推荐的例子</small>
 
 我们可以看出，对用户推荐是可以根据用户的历史行为为依据，也就是说可以解释推荐。下图是离线实验的各项指标，K值在10左右得到的评测结果最优。
@@ -260,6 +269,7 @@ ItemCF算法在计算过程中不会有任何内容属性的比较，但是结�
   K值和推荐系统的Coverage成反比。
 
 ![ItemCF算法离线实验的结果](./images/result-3.jpg)
+
 <small class="img-hint">图4.4 ItemCF算法离线实验的结果</small>
 
 ### 4.3 用户活跃度和物品相似度关系
@@ -271,6 +281,7 @@ ItemCF算法在计算过程中不会有任何内容属性的比较，但是结�
 为了便于比较，直接选取修正前的最佳K值10，由图可知，算法修正前后的精度很接近，但修正后的推荐结果的覆盖率得到了很大的提升，流行度有所下降，可以说修正后的推荐性能得到了提高。
 
 ![ItemCF算法和ItemCF-IUF算法的对比](./images/result-4.jpg)
+
 <small class="img-hint">图4.5 ItemCF算法和ItemCF-IUF算法的对比</small>
 
 ![formula-13](./images/formula-13.jpg)
